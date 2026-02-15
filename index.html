@@ -612,9 +612,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Configuration - 45 days from now
-            const TARGET_DATE = new Date();
-            TARGET_DATE.setDate(TARGET_DATE.getDate() + 45);
+            // Configuration - Fixed launch date: April 1, 2026
+            const TARGET_DATE = new Date("2026-04-01T00:00:00").getTime();
 
             const daysEl = document.getElementById('days');
             const hoursEl = document.getElementById('hours');
