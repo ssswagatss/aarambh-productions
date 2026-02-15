@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Aarambh Productions - Coming Soon</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #fff0f5;
+            --text-dark: #1a1a2e;
+            --text-light: #ffffff;
+            --accent-pink: #ff477e;
+            --accent-purple: #7b2cbf;
+            --accent-orange: #ff9f1c;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --input-bg: rgba(255, 255, 255, 0.9);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            color: var(--text-light);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating Background Shapes */
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 20s infinite linear;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+        }
+
+        .shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 70%;
+            left: 80%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+
+        .shape:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            top: 40%;
+            left: 60%;
+            animation-duration: 15s;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .shape:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 80%;
+            left: 20%;
+            animation-duration: 35s;
+            animation-delay: -10s;
+        }
+
+        .shape:nth-child(5) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            left: 90%;
+            animation-duration: 20s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, -50px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* Layout */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        /* Mascot - Bouncing Blob */
+        .mascot-container {
+            margin-bottom: 2rem;
+        }
+
+        .blob {
+            width: 120px;
+            height: 120px;
+            background: var(--text-light);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            position: relative;
+            animation: blobBounce 3s ease-in-out infinite, blobMorph 6s ease-in-out infinite alternate;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .eye {
+            width: 15px;
+            height: 15px;
+            background: var(--text-dark);
+            border-radius: 50%;
+            position: relative;
+            animation: blink 4s infinite;
+        }
+
+        .eye::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        @keyframes blobBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes blobMorph {
+            0% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+
+            100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            96%,
+            100% {
+                transform: scaleY(1);
+            }
+
+            98% {
+                transform: scaleY(0.1);
+            }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            line-height: 1.1;
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        /* Services Tags */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .service-tag {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .service-tag:hover {
+            background: white;
+            color: var(--accent-pink);
+            transform: translateY(-3px);
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .time-block {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 1.5rem 1rem;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .time-block:hover {
+            transform: translateY(-5px);
+        }
+
+        .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        /* Form */
+        .notify-form {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+            max-width: 450px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            background: var(--input-bg);
+            color: var(--text-dark);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        input[type="email"]:focus {
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        button.btn {
+            background: var(--text-dark);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        button.btn:hover {
+            background: white;
+            color: var(--accent-pink);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button.btn:active {
+            transform: scale(0.95);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            font-weight: 500;
+            height: 1.5rem;
+            /* prevent layout shift */
+        }
+
+        .form-message.success {
+            color: #ccffcc;
+        }
+
+        .form-message.error {
+            color: #ffcccc;
+        }
+
+        /* Social Icons */
+        .socials {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: white;
+            color: var(--accent-pink);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            align-self: center;
+        }
+
+        /* Accessibility: Reduce Motion */
+        @media (prefers-reduced-motion: reduce) {
+            body {
+                animation: none;
+                background: #e73c7e;
+            }
+
+            .shape,
+            .blob,
+            .eye,
+            .time-block:hover,
+            .social-link:hover,
+            button.btn:hover {
+                animation: none;
+                transition: none;
+                transform: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .countdown {
+                gap: 0.75rem;
+            }
+
+            .time-block {
+                min-width: 70px;
+                padding: 1rem 0.5rem;
+            }
+
+            .number {
+                font-size: 1.5rem;
+            }
+
+            .label {
+                font-size: 0.6rem;
+            }
+
+            .notify-form {
+                flex-direction: column;
+            }
+
+            button.btn {
+                width: 100%;
+            }
+        }
+
+        /* Celebration Confetti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-orange);
+            top: -10px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Background Shapes -->
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+
+    <main class="container">
+        <!-- Brand Name -->
+        <div style="font-weight: 900; letter-spacing: 4px; font-size: 1.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+            Aarambh Productions
+        </div>
+
+        <!-- Mascot -->
+        <div class="mascot-container"
+             aria-hidden="true">
+            <div class="blob">
+                <div class="face">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+            </div>
+        </div>
+
+        <h1 id="main-heading">Coming Soon!</h1>
+        <p class="subtitle">Creating Unforgettable Moments</p>
+
+        <!-- Services -->
+        <div class="services">
+            <span class="service-tag">Photography</span>
+            <span class="service-tag">Videography</span>
+            <span class="service-tag">Wedding Planning</span>
+            <span class="service-tag">Event Planning</span>
+        </div>
+
+        <!-- Countdown -->
+        <div class="countdown"
+             id="countdown"
+             role="timer"
+             aria-live="polite">
+            <div class="time-block">
+                <span class="number"
+                      id="days">--</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="time-block">
+                <span class="number"
+                      id="hours">--</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="time-block">
+                <span class="number"
+                      id="minutes">--</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="time-block">
+                <span class="number"
+                      id="seconds">--</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+
+        <!-- Notify Form -->
+        <form class="notify-form"
+              id="notifyForm"
+              novalidate>
+            <input type="email"
+                   placeholder="Enter your email"
+                   required
+                   aria-label="Email address"
+                   id="emailInput">
+            <button type="submit"
+                    class="btn">Notify me</button>
+        </form>
+        <div class="form-message"
+             id="formMessage"></div>
+    </main>
+
+    <footer>
+        &copy; 2026 Aarambh Productions. All rights reserved.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configuration - 45 days from now
+            const TARGET_DATE = new Date();
+            TARGET_DATE.setDate(TARGET_DATE.getDate() + 45);
+
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            const countdownContainer = document.getElementById('countdown');
+            const mainHeading = document.getElementById('main-heading');
+
+            // Animation helper for number flip
+            function updateValue(element, value) {
+                // If value hasn't changed, do nothing
+                const current = element.innerText;
+                const paddedValue = value < 10 ? `0${value}` : value;
+
+                if (current !== paddedValue.toString()) {
+                    element.innerText = paddedValue;
+                    // Trigger a small pulse animation
+                    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                        element.style.animation = 'none';
+                        element.offsetHeight; // trigger reflow
+                        element.style.animation = 'pulse 0.2s ease-out';
+                    }
+                }
+            }
+
+            // Countdown Logic
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = TARGET_DATE - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    // Celebration State
+                    mainHeading.innerText = "We're live!";
+                    countdownContainer.innerHTML = '<h2>It\'s time!</h2>';
+                    fireConfetti();
+                    return;
+                }
+
+                // Math
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                updateValue(daysEl, days);
+                updateValue(hoursEl, hours);
+                updateValue(minutesEl, minutes);
+                updateValue(secondsEl, seconds);
+            }, 1000);
+
+            // Form Logic
+            const form = document.getElementById('notifyForm');
+            const formMessage = document.getElementById('formMessage');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const emailInput = document.getElementById('emailInput');
+
+                if (emailInput.validity.valid) {
+                    // Simulate API call
+                    const btn = form.querySelector('button');
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Sending...';
+                    btn.disabled = true;
+
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        formMessage.innerText = 'Thanks! We\'ll keep you posted.';
+                        formMessage.className = 'form-message success';
+                        fireConfetti(); // Little reward for subscribing
+                    }, 1500);
+                } else {
+                    formMessage.innerText = 'Please enter a valid email address.';
+                    formMessage.className = 'form-message error';
+                }
+            });
+
+            // Simple Confetti Implementation
+            function fireConfetti() {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+                const colors = ['#ff477e', '#7b2cbf', '#ff9f1c', '#ffffff'];
+                const confettiCount = 100;
+
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetto = document.createElement('div');
+                    confetto.className = 'confetti';
+
+                    // Random properties
+                    const bg = colors[Math.floor(Math.random() * colors.length)];
+                    const left = Math.random() * 100 + 'vw';
+                    const animDuration = Math.random() * 3 + 2 + 's';
+                    const delay = Math.random() * 0.5 + 's';
+
+                    confetto.style.backgroundColor = bg;
+                    confetto.style.left = left;
+                    confetto.style.animation = `fall ${animDuration} linear ${delay} forwards`;
+
+                    document.body.appendChild(confetto);
+
+                    // Cleanup
+                    setTimeout(() => {
+                        confetto.remove();
+                    }, parseFloat(animDuration) * 1000 + 1000);
+                }
+            }
+
+            // Add fall keyframes dynamically since we need them only for confetti
+            const styleSheet = document.createElement("style");
+            styleSheet.innerText = `
+                @keyframes fall {
+                    0% { top: -10px; transform: rotate(0deg) translateX(0); opacity: 1; }
+                    100% { top: 100vh; transform: rotate(720deg) translateX(${Math.random() * 100 - 50}px); opacity: 0; }
+                }
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.2); }
+                    100% { transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(styleSheet);
+        });
+    </script>
+</body>
+
+</html>
