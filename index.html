@@ -232,39 +232,53 @@
         }
 
         /* Typography */
+        .brand-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
         h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            line-height: 1.1;
+            line-height: 1.05;
+            letter-spacing: -1px;
         }
 
         p.subtitle {
-            font-size: 1.25rem;
-            font-weight: 300;
-            margin-bottom: 3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
             opacity: 0.9;
+            color: rgba(255, 255, 255, 0.85);
         }
 
         /* Services Tags */
         .services {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 0.6rem;
             justify-content: center;
             margin-bottom: 2.5rem;
         }
 
         .service-tag {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(10px);
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .service-tag:hover {
@@ -276,18 +290,18 @@
         /* Countdown */
         .countdown {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .time-block {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 1rem;
-            padding: 1.5rem 1rem;
-            min-width: 100px;
+            padding: 1.25rem 0.75rem;
+            min-width: 80px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
             display: flex;
@@ -301,18 +315,20 @@
         }
 
         .number {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
             line-height: 1;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
             font-variant-numeric: tabular-nums;
+            color: white;
         }
 
         .label {
-            font-size: 0.8rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.8;
+            letter-spacing: 1.5px;
+            opacity: 0.7;
+            font-weight: 600;
         }
 
         /* Form */
@@ -448,16 +464,35 @@
         /* Responsive */
         @media (max-width: 600px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
+                letter-spacing: 0;
+            }
+
+            .brand-name {
+                font-size: 0.75rem;
+                letter-spacing: 3px;
+            }
+
+            p.subtitle {
+                font-size: 1rem;
+            }
+
+            .services {
+                gap: 0.5rem;
+            }
+
+            .service-tag {
+                padding: 0.35rem 0.75rem;
+                font-size: 0.65rem;
             }
 
             .countdown {
-                gap: 0.75rem;
+                gap: 0.6rem;
             }
 
             .time-block {
-                min-width: 70px;
-                padding: 1rem 0.5rem;
+                min-width: 65px;
+                padding: 1rem 0.4rem;
             }
 
             .number {
@@ -465,7 +500,7 @@
             }
 
             .label {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
 
             .notify-form {
@@ -500,7 +535,7 @@
 
     <main class="container">
         <!-- Brand Name -->
-        <div style="font-weight: 900; letter-spacing: 4px; font-size: 1.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+        <div class="brand-name">
             Aarambh Productions
         </div>
 
