@@ -2,786 +2,1003 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <title>Aarambh Productions - Coming Soon</title>
-    <!-- Google Fonts -->
+          content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="Aarambh Productions — Luxury wedding photography, cinematic videography & premium event management in India. We don't just document moments, we craft legacies." />
+    <meta name="keywords"
+          content="wedding photography, cinematic videography, event management, luxury wedding photographer India, premium wedding films" />
+    <meta name="author"
+          content="Aarambh Productions" />
+    <meta property="og:title"
+          content="Aarambh Productions | Cinematic Stories, Timeless Frames" />
+    <meta property="og:description"
+          content="Luxury wedding photography, cinematic videography & premium event management." />
+    <meta property="og:type"
+          content="website" />
+    <title>Aarambh Productions | Cinematic Stories, Timeless Frames</title>
+
+    <!-- Fonts -->
     <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+          href="https://fonts.googleapis.com" />
     <link rel="preconnect"
           href="https://fonts.gstatic.com"
-          crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <style>
-        /* CSS Variables */
-        :root {
-            --primary: #fff0f5;
-            --text-dark: #1a1a2e;
-            --text-light: #ffffff;
-            --accent-pink: #ff477e;
-            --accent-purple: #7b2cbf;
-            --accent-orange: #ff9f1c;
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --input-bg: rgba(255, 255, 255, 0.9);
-            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            min-height: 100vh;
-            color: var(--text-light);
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* Floating Background Shapes */
-        .shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border-radius: 50%;
-            z-index: 0;
-            animation: float 20s infinite linear;
-        }
-
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 10%;
-            left: 10%;
-            animation-duration: 25s;
-        }
-
-        .shape:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 70%;
-            left: 80%;
-            animation-duration: 30s;
-            animation-delay: -5s;
-        }
-
-        .shape:nth-child(3) {
-            width: 50px;
-            height: 50px;
-            top: 40%;
-            left: 60%;
-            animation-duration: 15s;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .shape:nth-child(4) {
-            width: 120px;
-            height: 120px;
-            top: 80%;
-            left: 20%;
-            animation-duration: 35s;
-            animation-delay: -10s;
-        }
-
-        .shape:nth-child(5) {
-            width: 60px;
-            height: 60px;
-            top: 20%;
-            left: 90%;
-            animation-duration: 20s;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            33% {
-                transform: translate(30px, -50px) rotate(120deg);
-            }
-
-            66% {
-                transform: translate(-20px, 20px) rotate(240deg);
-            }
-
-            100% {
-                transform: translate(0, 0) rotate(360deg);
-            }
-        }
-
-        /* Layout */
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-        }
-
-        /* Mascot - Bouncing Blob */
-        .mascot-container {
-            margin-bottom: 2rem;
-        }
-
-        .blob {
-            width: 120px;
-            height: 120px;
-            background: var(--text-light);
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            position: relative;
-            animation: blobBounce 3s ease-in-out infinite, blobMorph 6s ease-in-out infinite alternate;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .face {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            height: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .eye {
-            width: 15px;
-            height: 15px;
-            background: var(--text-dark);
-            border-radius: 50%;
-            position: relative;
-            animation: blink 4s infinite;
-        }
-
-        .eye::after {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            width: 5px;
-            height: 5px;
-            background: white;
-            border-radius: 50%;
-        }
-
-        @keyframes blobBounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes blobMorph {
-            0% {
-                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            }
-
-            100% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            }
-        }
-
-        @keyframes blink {
-
-            0%,
-            96%,
-            100% {
-                transform: scaleY(1);
-            }
-
-            98% {
-                transform: scaleY(0.1);
-            }
-        }
-
-        /* Typography */
-        .brand-name {
-            font-family: 'Fredoka', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 0.75rem;
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            line-height: 1.05;
-            letter-spacing: -1px;
-        }
-
-        p.subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            font-weight: 400;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        /* Services Tags */
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .service-tag {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            padding: 0.4rem 0.9rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .service-tag:hover {
-            background: white;
-            color: var(--accent-pink);
-            transform: translateY(-3px);
-        }
-
-        /* Countdown */
-        .countdown {
-            display: flex;
-            gap: 1.25rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .time-block {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 1rem;
-            padding: 1.25rem 0.75rem;
-            min-width: 80px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.2s;
-        }
-
-        .time-block:hover {
-            transform: translateY(-5px);
-        }
-
-        .number {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 0.2rem;
-            font-variant-numeric: tabular-nums;
-            color: white;
-        }
-
-        .label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            opacity: 0.7;
-            font-weight: 600;
-        }
-
-        /* Form */
-        .notify-form {
-            display: flex;
-            gap: 0.5rem;
-            width: 100%;
-            max-width: 450px;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        input[type="email"] {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem;
-            border: none;
-            border-radius: 50px;
-            background: var(--input-bg);
-            color: var(--text-dark);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s;
-            outline: none;
-        }
-
-        input[type="email"]:focus {
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
-            transform: scale(1.02);
-        }
-
-        button.btn {
-            background: var(--text-dark);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        button.btn:hover {
-            background: white;
-            color: var(--accent-pink);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        button.btn:active {
-            transform: scale(0.95);
-        }
-
-        .form-message {
-            margin-top: 1rem;
-            font-weight: 500;
-            height: 1.5rem;
-            /* prevent layout shift */
-        }
-
-        .form-message.success {
-            color: #ccffcc;
-        }
-
-        .form-message.error {
-            color: #ffcccc;
-        }
-
-        /* Social Icons */
-        .socials {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            color: white;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background: white;
-            color: var(--accent-pink);
-            transform: translateY(-5px) rotate(10deg);
-        }
-
-        .social-link svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: auto;
-            padding: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            align-self: center;
-        }
-
-        /* Accessibility: Reduce Motion */
-        @media (prefers-reduced-motion: reduce) {
-            body {
-                animation: none;
-                background: #e73c7e;
-            }
-
-            .shape,
-            .blob,
-            .eye,
-            .time-block:hover,
-            .social-link:hover,
-            button.btn:hover {
-                animation: none;
-                transition: none;
-                transform: none;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.25rem;
-                letter-spacing: 0;
-            }
-
-            .brand-name {
-                font-size: 1.1rem;
-                letter-spacing: 4px;
-            }
-
-            p.subtitle {
-                font-size: 1rem;
-            }
-
-            .services {
-                gap: 0.5rem;
-            }
-
-            .service-tag {
-                padding: 0.35rem 0.75rem;
-                font-size: 0.65rem;
-            }
-
-            .countdown {
-                gap: 0.6rem;
-            }
-
-            .time-block {
-                min-width: 65px;
-                padding: 1rem 0.4rem;
-            }
-
-            .number {
-                font-size: 1.5rem;
-            }
-
-            .label {
-                font-size: 0.55rem;
-            }
-
-            .notify-form {
-                flex-direction: column;
-            }
-
-            button.btn {
-                width: 100%;
-            }
-        }
-
-        /* Celebration Confetti */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: var(--accent-orange);
-            top: -10px;
-            z-index: 10;
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Floating Background Shapes -->
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-
-    <main class="container">
-        <!-- Brand Name -->
-        <div class="brand-name">
-            Aarambh Productions
+          crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap"
+          rel="stylesheet" />
+
+    <link rel="stylesheet"
+          href="style.css" />
+    <!-- Mobile Menu -->
+    <div class="mobile-menu"
+         id="mobileMenu"
+         role="dialog"
+         aria-label="Navigation menu">
+        <a href="#portfolio"
+           onclick="closeMobile()">Portfolio</a>
+        <a href="#services"
+           onclick="closeMobile()">Services</a>
+        <a href="#about"
+           onclick="closeMobile()">About</a>
+        <a href="#testimonials"
+           onclick="closeMobile()">Stories</a>
+        <a href="#booking"
+           onclick="closeMobile()"
+           style="color:var(--gold)">Book Now</a>
+    </div>
+
+    <!-- NAV -->
+    <nav id="nav"
+         role="navigation"
+         aria-label="Main navigation">
+        <a href="#hero"
+           class="nav-logo"
+           aria-label="Aarambh Productions Home">
+            <span class="nav-logo-main">Aarambh</span>
+            <span class="nav-logo-sub">Productions</span>
+        </a>
+        <ul class="nav-links"
+            role="list">
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Stories</a></li>
+            <li><a href="#booking"
+                   class="nav-cta">Book Consultation</a></li>
+        </ul>
+        <button class="nav-hamburger"
+                id="hamburger"
+                aria-label="Open menu"
+                aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+    <section id="hero"
+             aria-label="Hero">
+
+        <!-- Cinematic video bg – replace src with real footage -->
+        <div class="hero-video-wrap">
+            <video autoplay
+                   muted
+                   loop
+                   playsinline
+                   poster="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80"
+                   aria-hidden="true"
+                   preload="none">
+                <!-- Real cinematic reel goes here -->
+                <!-- <source src="assets/hero-reel.mp4" type="video/mp4" /> -->
+            </video>
+            <!-- Fallback bg shown when video is unavailable -->
+            <div class="hero-bg-fallback"></div>
         </div>
 
-        <!-- Mascot -->
-        <div class="mascot-container"
+        <div class="hero-content">
+            <p class="hero-eyebrow">Est. 2018 &nbsp;·&nbsp; Photography &amp; Film</p>
+            <h1 class="hero-title">
+                Every story<br />
+                <em>deserves</em><br />
+                a frame.
+            </h1>
+            <p class="hero-sub">
+                Cinematic wedding films and photography crafted for those who refuse to let extraordinary moments fade
+                into ordinary albums.
+            </p>
+            <div class="hero-actions">
+                <a href="#booking"
+                   class="btn-primary">
+                    Book a Consultation
+                    <svg width="16"
+                         height="16"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         aria-hidden="true">
+                        <line x1="5"
+                              y1="12"
+                              x2="19"
+                              y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </a>
+                <a href="#portfolio"
+                   class="btn-ghost">
+                    View Our Work
+                    <svg width="16"
+                         height="16"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         aria-hidden="true">
+                        <line x1="5"
+                              y1="12"
+                              x2="19"
+                              y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="hero-awards"
+             aria-label="Key statistics">
+            <div class="award-item">
+                <span class="award-num">400+</span>
+                <span class="award-label">Stories Told</span>
+            </div>
+            <div class="award-item">
+                <span class="award-num">12+</span>
+                <span class="award-label">Cities Covered</span>
+            </div>
+            <div class="award-item">
+                <span class="award-num">7</span>
+                <span class="award-label">Years of Craft</span>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll"
              aria-hidden="true">
-            <div class="blob">
-                <div class="face">
-                    <div class="eye"></div>
-                    <div class="eye"></div>
+            <span>Scroll</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       MARQUEE
+  ════════════════════════════════════════ -->
+    <div class="marquee-strip"
+         aria-hidden="true">
+        <div class="marquee-inner">
+            <!-- Two copies for seamless loop -->
+            <span class="marquee-item">Cinematic Weddings<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Corporate Events<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Pre-Wedding Films<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Destination Shoots<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Luxury Portraiture<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Product &amp; Brand Films<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Engagement Sessions<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Event Management<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Cinematic Weddings<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Corporate Events<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Pre-Wedding Films<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Destination Shoots<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Luxury Portraiture<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Product &amp; Brand Films<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Engagement Sessions<span class="marquee-dot"></span></span>
+            <span class="marquee-item">Event Management<span class="marquee-dot"></span></span>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+       PORTFOLIO
+  ════════════════════════════════════════ -->
+    <section id="portfolio"
+             class="section"
+             aria-labelledby="portfolio-heading">
+        <div class="container">
+            <div class="portfolio-header">
+                <div>
+                    <div class="section-label reveal">Selected Work</div>
+                    <h2 id="portfolio-heading"
+                        class="section-title reveal reveal-delay-1">
+                        Frames that<br /><em>outlive</em> the moment.
+                    </h2>
+                </div>
+                <div class="portfolio-filter reveal reveal-delay-2"
+                     role="group"
+                     aria-label="Filter portfolio">
+                    <button class="filter-btn active"
+                            data-filter="all">All</button>
+                    <button class="filter-btn"
+                            data-filter="wedding">Weddings</button>
+                    <button class="filter-btn"
+                            data-filter="corporate">Corporate</button>
+                    <button class="filter-btn"
+                            data-filter="private">Private</button>
                 </div>
             </div>
-        </div>
 
-        <h1 id="main-heading">Coming Soon!</h1>
-        <p class="subtitle">Where Magic Meets Moments</p>
+            <div class="portfolio-grid"
+                 role="list">
 
-        <!-- Services -->
-        <div class="services">
-            <span class="service-tag">Photography</span>
-            <span class="service-tag">Videography</span>
-            <span class="service-tag">Weddings</span>
-            <span class="service-tag">Events</span>
-        </div>
+                <article class="portfolio-item reveal"
+                         role="listitem"
+                         data-category="wedding"
+                         tabindex="0"
+                         aria-label="The Sharma-Mehta Wedding">
+                    <div class="img-placeholder img-p1"
+                         data-label="Wedding"
+                         aria-hidden="true">
+                        <svg class="scene-icon"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1"
+                             aria-hidden="true">
+                            <path
+                                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Destination Wedding</p>
+                        <h3 class="portfolio-name">The Sharma–Mehta<br />Udaipur Affair</h3>
+                    </div>
+                </article>
 
-        <!-- Countdown -->
-        <div class="countdown"
-             id="countdown"
-             role="timer"
-             aria-live="polite">
-            <div class="time-block">
-                <span class="number"
-                      id="days">--</span>
-                <span class="label">Days</span>
+                <article class="portfolio-item reveal reveal-delay-1"
+                         role="listitem"
+                         data-category="corporate"
+                         tabindex="0"
+                         aria-label="Nexus Annual Summit">
+                    <div class="img-placeholder img-p2"
+                         data-label="Corporate"
+                         aria-hidden="true">
+                        <svg class="scene-icon"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1"
+                             aria-hidden="true">
+                            <rect x="2"
+                                  y="7"
+                                  width="20"
+                                  height="14"
+                                  rx="2" />
+                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                        </svg>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Corporate Summit</p>
+                        <h3 class="portfolio-name">Nexus Tech<br />Annual Conference</h3>
+                    </div>
+                </article>
+
+                <article class="portfolio-item reveal reveal-delay-2"
+                         role="listitem"
+                         data-category="wedding"
+                         tabindex="0"
+                         aria-label="Kapoor Pre-Wedding">
+                    <div class="img-placeholder img-p3"
+                         data-label="Pre-Wed"
+                         aria-hidden="true">
+                        <svg class="scene-icon"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1"
+                             aria-hidden="true">
+                            <circle cx="12"
+                                    cy="8"
+                                    r="4" />
+                            <path d="M12 14c-6 0-8 2-8 4v2h16v-2c0-2-2-4-8-4z" />
+                        </svg>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Pre-Wedding Film</p>
+                        <h3 class="portfolio-name">Arjun &amp; Priya<br />Kashmir Series</h3>
+                    </div>
+                </article>
+
+                <article class="portfolio-item reveal reveal-delay-1"
+                         role="listitem"
+                         data-category="private"
+                         tabindex="0"
+                         aria-label="Private Gala">
+                    <div class="img-placeholder img-p4"
+                         data-label="Gala"
+                         aria-hidden="true">
+                        <svg class="scene-icon"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1"
+                             aria-hidden="true">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Private Gala</p>
+                        <h3 class="portfolio-name">The Oberoi Masquerade<br />New Year Edit</h3>
+                    </div>
+                </article>
+
+                <article class="portfolio-item reveal reveal-delay-2"
+                         role="listitem"
+                         data-category="wedding"
+                         tabindex="0"
+                         aria-label="Royal Rajputana Wedding">
+                    <div class="img-placeholder img-p5"
+                         data-label="Royal"
+                         aria-hidden="true">
+                        <svg class="scene-icon"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1"
+                             aria-hidden="true">
+                            <polygon
+                                     points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Royal Wedding</p>
+                        <h3 class="portfolio-name">Rajputana Nuptials<br />Jodhpur, 2024</h3>
+                    </div>
+                </article>
+
+                <article class="portfolio-item reveal reveal-delay-3"
+                         role="listitem"
+                         data-category="corporate"
+                         tabindex="0"
+                         aria-label="Brand Campaign Shoot">
+                    <div class="img-placeholder img-p6"
+                         data-label="Brand"
+                         aria-hidden="true">
+                        <svg class="scene-icon"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1"
+                             aria-hidden="true">
+                            <circle cx="12"
+                                    cy="12"
+                                    r="10" />
+                            <polygon points="10 8 16 12 10 16 10 8" />
+                        </svg>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Brand Campaign</p>
+                        <h3 class="portfolio-name">House of Threads<br />Campaign 2024</h3>
+                    </div>
+                </article>
+
             </div>
-            <div class="time-block">
-                <span class="number"
-                      id="hours">--</span>
-                <span class="label">Hours</span>
-            </div>
-            <div class="time-block">
-                <span class="number"
-                      id="minutes">--</span>
-                <span class="label">Minutes</span>
-            </div>
-            <div class="time-block">
-                <span class="number"
-                      id="seconds">--</span>
-                <span class="label">Seconds</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════════ -->
+    <section id="services"
+             class="section"
+             aria-labelledby="services-heading">
+        <div class="container">
+            <div class="section-label reveal">What We Do</div>
+            <h2 id="services-heading"
+                class="section-title reveal reveal-delay-1">
+                Crafted for the<br /><em>extraordinary.</em>
+            </h2>
+            <p class="about-body reveal reveal-delay-2"
+               style="max-width:520px;margin-top:1.2rem;">
+                Three specialisms. One shared obsession — making you feel something long after the day is done.
+            </p>
+
+            <div class="services-grid"
+                 role="list">
+
+                <!-- Wedding -->
+                <article class="service-card reveal"
+                         role="listitem">
+                    <div class="service-number"
+                         aria-hidden="true">01</div>
+                    <h3 class="service-title">Wedding Photography &amp; Film</h3>
+                    <p class="service-desc">
+                        Your wedding is not an event. It is a feeling — unguarded, wild, and irreplaceable. We chase the
+                        light that falls just right and the glances that say everything words cannot.
+                    </p>
+                    <ul class="service-list"
+                        aria-label="Wedding services include">
+                        <li>Cinematic highlight films</li>
+                        <li>Full-day documentary coverage</li>
+                        <li>Pre-wedding &amp; engagement sessions</li>
+                        <li>Destination &amp; multi-day shoots</li>
+                        <li>Fine-art album design</li>
+                    </ul>
+                </article>
+
+                <!-- Corporate -->
+                <article class="service-card reveal reveal-delay-1"
+                         role="listitem">
+                    <div class="service-number"
+                         aria-hidden="true">02</div>
+                    <h3 class="service-title">Corporate &amp; Brand Events</h3>
+                    <p class="service-desc">
+                        Your brand has a story. We make sure the world sees it with clarity, intention, and impact. From
+                        intimate product launches to national conferences.
+                    </p>
+                    <ul class="service-list"
+                        aria-label="Corporate services include">
+                        <li>Conference &amp; summit coverage</li>
+                        <li>Brand &amp; product campaign films</li>
+                        <li>Award nights &amp; galas</li>
+                        <li>Executive portraiture</li>
+                        <li>Social media content packages</li>
+                    </ul>
+                </article>
+
+                <!-- Private Events -->
+                <article class="service-card reveal reveal-delay-2"
+                         role="listitem">
+                    <div class="service-number"
+                         aria-hidden="true">03</div>
+                    <h3 class="service-title">Private &amp; Luxury Events</h3>
+                    <p class="service-desc">
+                        Birthday milestones, intimate soirées, anniversary celebrations — moments that belong to you
+                        alone. We document them with the reverence they deserve.
+                    </p>
+                    <ul class="service-list"
+                        aria-label="Private event services include">
+                        <li>Milestone birthday films</li>
+                        <li>Anniversary &amp; vow renewal</li>
+                        <li>Luxury event management</li>
+                        <li>Décor &amp; production consulting</li>
+                        <li>Live streaming &amp; highlight edits</li>
+                    </ul>
+                </article>
+
             </div>
         </div>
+    </section>
 
-        <!-- Notify Form -->
-        <form class="notify-form"
-              id="notifyForm"
-              novalidate>
-            <input type="email"
-                   placeholder="Enter your email"
-                   required
-                   aria-label="Email address"
-                   id="emailInput">
-            <button type="submit"
-                    class="btn">Notify me</button>
-        </form>
-        <div class="form-message"
-             id="formMessage"></div>
+    <!-- ═══════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════ -->
+    <section id="about"
+             class="section"
+             aria-labelledby="about-heading">
+        <div class="container">
+            <div class="about-grid">
 
-        <!-- Social Links -->
-        <div class="socials">
-            <a href="https://www.instagram.com/aarambhweddingfilms"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="social-link"
-               aria-label="Instagram">
-                <svg viewBox="0 0 24 24">
-                    <path
-                          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-            </a>
-            <a href="https://facebook.com"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="social-link"
-               aria-label="Facebook">
-                <svg viewBox="0 0 24 24">
-                    <path
-                          d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-            </a>
-            <a href="https://twitter.com"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="social-link"
-               aria-label="Twitter">
-                <svg viewBox="0 0 24 24">
-                    <path
-                          d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                </svg>
-            </a>
-            <a href="https://youtube.com"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="social-link"
-               aria-label="YouTube">
-                <svg viewBox="0 0 24 24">
-                    <path
-                          d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-            </a>
+                <div class="about-visual reveal">
+                    <div class="about-main-img"
+                         role="img"
+                         aria-label="Aarambh Productions team at work"></div>
+                    <div class="about-accent-box"
+                         aria-hidden="true">
+                        <span class="about-accent-num">400+</span>
+                        <span class="about-accent-text">Love stories archived</span>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <div class="section-label reveal">Our Story</div>
+                    <h2 id="about-heading"
+                        class="section-title reveal reveal-delay-1">
+                        We never<br /><em>just document.</em><br />We feel.
+                    </h2>
+                    <div class="about-body reveal reveal-delay-2">
+                        <p>
+                            Aarambh — <strong>the beginning</strong> — was born from a single conviction: that the best
+                            photographs are the ones you feel before you see.
+                        </p>
+                        <p>
+                            Founded in 2018, we are a team of visual storytellers who believe that every ceremony, every
+                            glance, every tear, and every laugh holds an entire universe inside it. <strong>Our job is
+                                simply to find it.</strong>
+                        </p>
+                        <p>
+                            From the backstreets of Jaipur's old city to palace courtyards in Udaipur and rooftop
+                            ceremonies in Mumbai — we have followed love across 12 cities, hundreds of stories, and
+                            thousands of frames that will outlast us all.
+                        </p>
+                    </div>
+                    <div class="about-signature reveal reveal-delay-3">
+                        <div class="about-signature-line"></div>
+                        <span class="about-signature-text">— Rohan Verma, Founder &amp; Lead Cinematographer</span>
+                    </div>
+                    <div style="margin-top:2.5rem;"
+                         class="reveal reveal-delay-4">
+                        <a href="#booking"
+                           class="btn-primary">Start Your Story</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </main>
+    </section>
 
-    <footer>
-        &copy; 2026 Aarambh Productions. All rights reserved.
+    <!-- ═══════════════════════════════════════
+       TESTIMONIALS
+  ════════════════════════════════════════ -->
+    <section id="testimonials"
+             class="section"
+             aria-labelledby="testimonials-heading">
+        <div class="container">
+            <div class="section-label reveal">Client Stories</div>
+            <h2 id="testimonials-heading"
+                class="section-title reveal reveal-delay-1">
+                What they <em>felt</em><br />after they saw it.
+            </h2>
+
+            <div class="testimonials-wrap"
+                 role="list">
+
+                <blockquote class="testimonial-card featured reveal"
+                            role="listitem">
+                    <span class="testimonial-quote-mark"
+                          aria-hidden="true">"</span>
+                    <p class="testimonial-text">
+                        We watched our highlight film for the first time together. Neither of us expected to cry the way
+                        we did. Aarambh didn't just film our wedding — they handed us back a version of our day that was
+                        somehow more beautiful than we even lived it.
+                    </p>
+                    <footer class="testimonial-author">
+                        <div class="author-avatar"
+                             role="img"
+                             aria-label="Ananya Sharma photo"></div>
+                        <div>
+                            <p class="author-info-name">Ananya &amp; Vikram Sharma</p>
+                            <p class="author-info-role">Udaipur Palace Wedding · 2024</p>
+                        </div>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="testimonial-card reveal reveal-delay-1"
+                            role="listitem">
+                    <div class="testimonial-stars"
+                         aria-label="5 out of 5 stars">
+                        <span class="star"
+                              aria-hidden="true">★</span><span class="star"
+                              aria-hidden="true">★</span>
+                        <span class="star"
+                              aria-hidden="true">★</span><span class="star"
+                              aria-hidden="true">★</span>
+                        <span class="star"
+                              aria-hidden="true">★</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "Our conference film went viral on LinkedIn — 80k impressions in 48 hours. The team understood
+                        our brand voice immediately."
+                    </p>
+                    <footer class="testimonial-author">
+                        <div class="author-avatar"
+                             role="img"
+                             aria-label="Deepak Malhotra photo"></div>
+                        <div>
+                            <p class="author-info-name">Deepak Malhotra</p>
+                            <p class="author-info-role">CMO, Nexus Technologies</p>
+                        </div>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="testimonial-card reveal reveal-delay-2"
+                            role="listitem">
+                    <div class="testimonial-stars"
+                         aria-label="5 out of 5 stars">
+                        <span class="star"
+                              aria-hidden="true">★</span><span class="star"
+                              aria-hidden="true">★</span>
+                        <span class="star"
+                              aria-hidden="true">★</span><span class="star"
+                              aria-hidden="true">★</span>
+                        <span class="star"
+                              aria-hidden="true">★</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "I've had photographers before who made me feel like a subject. Rohan's team made me feel like a
+                        person. The difference shows in every single frame."
+                    </p>
+                    <footer class="testimonial-author">
+                        <div class="author-avatar"
+                             role="img"
+                             aria-label="Priya Singh photo"></div>
+                        <div>
+                            <p class="author-info-name">Priya Singh</p>
+                            <p class="author-info-role">Private 40th Birthday, Mumbai</p>
+                        </div>
+                    </footer>
+                </blockquote>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       BOOKING
+  ════════════════════════════════════════ -->
+    <section id="booking"
+             class="section"
+             aria-labelledby="booking-heading">
+        <div class="container">
+            <div class="booking-grid">
+
+                <div class="booking-info">
+                    <div class="section-label reveal">Get In Touch</div>
+                    <h2 id="booking-heading"
+                        class="section-title reveal reveal-delay-1">
+                        Let's make<br /><em>something</em><br />unforgettable.
+                    </h2>
+                    <p class="about-body reveal reveal-delay-2"
+                       style="margin-top:1.5rem;">
+                        We work with a limited number of clients each year — because every project deserves our full
+                        attention, our full heart, and our full craft.
+                    </p>
+
+                    <div class="booking-contact reveal reveal-delay-3"
+                         aria-label="Contact information">
+                        <div class="contact-item">
+                            <svg class="contact-icon"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="1.5"
+                                 aria-hidden="true">
+                                <path
+                                      d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.27 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-2.84-8.55A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72..." />
+                                <path
+                                      d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.13 13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.24 2h3.18a2 2 0 012 1.7 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.62 9.62a16 16 0 006.06 6.06l1.01-1.01a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                            <div>
+                                <p class="contact-label">Call Us</p>
+                                <p class="contact-value">+91 98765 43210</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="1.5"
+                                 aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <div>
+                                <p class="contact-label">Email</p>
+                                <p class="contact-value">info@aarambhproductions.in</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="1.5"
+                                 aria-hidden="true">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12"
+                                        cy="10"
+                                        r="3" />
+                            </svg>
+                            <div>
+                                <p class="contact-label">Base Location</p>
+                                <p class="contact-value">Jaraka &amp; Odisha, India<br /><span
+                                          style="font-size:.78rem;color:var(--muted)">Available Pan-India &amp;
+                                        International</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inquiry Form -->
+                <div class="inquiry-form reveal reveal-delay-2">
+                    <p class="form-title">Begin Your <span>Aarambh</span></p>
+                    <form action="#"
+                          method="POST"
+                          novalidate
+                          aria-label="Booking inquiry form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label"
+                                       for="fname">Full Name <span aria-label="required">*</span></label>
+                                <input class="form-input"
+                                       type="text"
+                                       id="fname"
+                                       name="name"
+                                       placeholder="Your Full Name"
+                                       required
+                                       autocomplete="name" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label"
+                                       for="fphone">Phone <span aria-label="required">*</span></label>
+                                <input class="form-input"
+                                       type="tel"
+                                       id="fphone"
+                                       name="phone"
+                                       placeholder="+91 00000 00000"
+                                       required
+                                       autocomplete="tel" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"
+                                   for="femail">Email Address <span aria-label="required">*</span></label>
+                            <input class="form-input"
+                                   type="email"
+                                   id="femail"
+                                   name="email"
+                                   placeholder="your@email.com"
+                                   required
+                                   autocomplete="email" />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label"
+                                       for="fevent-type">Event Type <span aria-label="required">*</span></label>
+                                <select class="form-select"
+                                        id="fevent-type"
+                                        name="event_type"
+                                        required>
+                                    <option value=""
+                                            disabled
+                                            selected>Select Event Type</option>
+                                    <option value="wedding">Wedding</option>
+                                    <option value="pre-wedding">Pre-Wedding / Engagement</option>
+                                    <option value="corporate">Corporate Event</option>
+                                    <option value="private">Private / Social Event</option>
+                                    <option value="brand">Brand / Product Shoot</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label"
+                                       for="fevent-date">Event Date</label>
+                                <input class="form-input"
+                                       type="date"
+                                       id="fevent-date"
+                                       name="event_date" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label"
+                                       for="flocation">Event Location</label>
+                                <input class="form-input"
+                                       type="text"
+                                       id="flocation"
+                                       name="location"
+                                       placeholder="City / Venue"
+                                       autocomplete="off" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label"
+                                       for="fbudget">Approximate Budget</label>
+                                <select class="form-select"
+                                        id="fbudget"
+                                        name="budget">
+                                    <option value=""
+                                            disabled
+                                            selected>Select Budget Range</option>
+                                    <option value="50k-1L">₹50,000 – ₹1,00,000</option>
+                                    <option value="1L-2L">₹1,00,000 – ₹2,00,000</option>
+                                    <option value="2L-5L">₹2,00,000 – ₹5,00,000</option>
+                                    <option value="5L+">₹5,00,000+</option>
+                                    <option value="discuss">Let's Discuss</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"
+                                   for="fmessage">Tell Us Your Story</label>
+                            <textarea class="form-textarea"
+                                      id="fmessage"
+                                      name="message"
+                                      placeholder="Share what makes your event unique, what you envision, or anything you want us to know..."></textarea>
+                        </div>
+                        <button type="submit"
+                                class="form-submit">Send Inquiry &nbsp;→</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       CLOSING CTA
+  ════════════════════════════════════════ -->
+    <section id="cta-close"
+             aria-label="Call to action">
+        <div class="container"
+             style="position:relative;z-index:1;">
+            <p class="cta-close-eyebrow reveal">Limited Dates Available for 2025</p>
+            <h2 class="cta-close-title reveal reveal-delay-1">
+                Your story is<br />waiting to be<br /><em>told.</em>
+            </h2>
+            <p class="cta-close-sub reveal reveal-delay-2">
+                We work with only 40 clients a year. Not because we can't do more — but because you deserve everything
+                we have.
+            </p>
+            <div class="cta-btns reveal reveal-delay-3">
+                <a href="#booking"
+                   class="btn-primary">
+                    Book a Consultation
+                    <svg width="16"
+                         height="16"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         aria-hidden="true">
+                        <line x1="5"
+                              y1="12"
+                              x2="19"
+                              y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </a>
+                <a href="tel:+919876543210"
+                   class="btn-ghost">
+                    <svg width="16"
+                         height="16"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         aria-hidden="true">
+                        <path
+                              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.13 13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.24 2h3.18a2 2 0 012 1.7 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.62 9.62a16 16 0 006.06 6.06l1.01-1.01a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                    </svg>
+                    Call Us Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+    <footer id="footer"
+            role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-logo">Aarambh</div>
+                    <div class="footer-brand-sub">Productions</div>
+                    <p class="footer-tagline">
+                        Crafting cinematic stories for those who refuse to let extraordinary moments go undocumented.
+                    </p>
+                    <nav class="footer-social"
+                         aria-label="Social media links">
+                        <a href="#"
+                           class="social-link"
+                           aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="1.5"
+                                 aria-hidden="true">
+                                <rect x="2"
+                                      y="2"
+                                      width="20"
+                                      height="20"
+                                      rx="5"
+                                      ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5"
+                                      y1="6.5"
+                                      x2="17.51"
+                                      y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                           class="social-link"
+                           aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="1.5"
+                                 aria-hidden="true">
+                                <path
+                                      d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+                                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                           class="social-link"
+                           aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="1.5"
+                                 aria-hidden="true">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                           class="social-link"
+                           aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="1.5"
+                                 aria-hidden="true">
+                                <path
+                                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2"
+                                      y="9"
+                                      width="4"
+                                      height="12" />
+                                <circle cx="4"
+                                        cy="4"
+                                        r="2" />
+                            </svg>
+                        </a>
+                    </nav>
+                </div>
+
+                <div>
+                    <p class="footer-col-title">Services</p>
+                    <ul class="footer-links"
+                        role="list">
+                        <li><a href="#services">Wedding Photography</a></li>
+                        <li><a href="#services">Cinematic Films</a></li>
+                        <li><a href="#services">Pre-Wedding Shoots</a></li>
+                        <li><a href="#services">Corporate Events</a></li>
+                        <li><a href="#services">Private Events</a></li>
+                        <li><a href="#services">Event Management</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="footer-col-title">Company</p>
+                    <ul class="footer-links"
+                        role="list">
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#testimonials">Client Stories</a></li>
+                        <li><a href="#booking">Book a Consultation</a></li>
+                        <li><a href="#">Behind the Scenes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="footer-col-title">Contact</p>
+                    <ul class="footer-links"
+                        role="list">
+                        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+                        <li><a href="mailto:hello@aarambhproductions.in">hello@aarambhproductions.in</a></li>
+                        <li><a href="#">Mumbai, Maharashtra</a></li>
+                        <li><a href="#">Jaipur, Rajasthan</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2025 Aarambh Productions. All rights reserved.</p>
+                <nav class="footer-legal"
+                     aria-label="Legal links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Configuration - Fixed launch date: April 1, 2026
-            const TARGET_DATE = new Date("2026-04-01T00:00:00").getTime();
+    <script src="main.js"
+            defer></script>
 
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-            const countdownContainer = document.getElementById('countdown');
-            const mainHeading = document.getElementById('main-heading');
-
-            // Animation helper for number flip
-            function updateValue(element, value) {
-                // If value hasn't changed, do nothing
-                const current = element.innerText;
-                const paddedValue = value < 10 ? `0${value}` : value;
-
-                if (current !== paddedValue.toString()) {
-                    element.innerText = paddedValue;
-                    // Trigger a small pulse animation
-                    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                        element.style.animation = 'none';
-                        element.offsetHeight; // trigger reflow
-                        element.style.animation = 'pulse 0.2s ease-out';
-                    }
-                }
-            }
-
-            // Countdown Logic
-            const timer = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = TARGET_DATE - now;
-
-                if (distance < 0) {
-                    clearInterval(timer);
-                    // Celebration State
-                    mainHeading.innerText = "We're live!";
-                    countdownContainer.innerHTML = '<h2>It\'s time!</h2>';
-                    fireConfetti();
-                    return;
-                }
-
-                // Math
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                updateValue(daysEl, days);
-                updateValue(hoursEl, hours);
-                updateValue(minutesEl, minutes);
-                updateValue(secondsEl, seconds);
-            }, 1000);
-
-            // Form Logic
-            const form = document.getElementById('notifyForm');
-            const formMessage = document.getElementById('formMessage');
-
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const emailInput = document.getElementById('emailInput');
-
-                if (emailInput.validity.valid) {
-                    // Simulate API call
-                    const btn = form.querySelector('button');
-                    const originalText = btn.innerText;
-                    btn.innerText = 'Sending...';
-                    btn.disabled = true;
-
-                    setTimeout(() => {
-                        form.style.display = 'none';
-                        formMessage.innerText = 'Thanks! We\'ll keep you posted.';
-                        formMessage.className = 'form-message success';
-                        fireConfetti(); // Little reward for subscribing
-                    }, 1500);
-                } else {
-                    formMessage.innerText = 'Please enter a valid email address.';
-                    formMessage.className = 'form-message error';
-                }
-            });
-
-            // Simple Confetti Implementation
-            function fireConfetti() {
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-                const colors = ['#ff477e', '#7b2cbf', '#ff9f1c', '#ffffff'];
-                const confettiCount = 100;
-
-                for (let i = 0; i < confettiCount; i++) {
-                    const confetto = document.createElement('div');
-                    confetto.className = 'confetti';
-
-                    // Random properties
-                    const bg = colors[Math.floor(Math.random() * colors.length)];
-                    const left = Math.random() * 100 + 'vw';
-                    const animDuration = Math.random() * 3 + 2 + 's';
-                    const delay = Math.random() * 0.5 + 's';
-
-                    confetto.style.backgroundColor = bg;
-                    confetto.style.left = left;
-                    confetto.style.animation = `fall ${animDuration} linear ${delay} forwards`;
-
-                    document.body.appendChild(confetto);
-
-                    // Cleanup
-                    setTimeout(() => {
-                        confetto.remove();
-                    }, parseFloat(animDuration) * 1000 + 1000);
-                }
-            }
-
-            // Add fall keyframes dynamically since we need them only for confetti
-            const styleSheet = document.createElement("style");
-            styleSheet.innerText = `
-                @keyframes fall {
-                    0% { top: -10px; transform: rotate(0deg) translateX(0); opacity: 1; }
-                    100% { top: 100vh; transform: rotate(720deg) translateX(${Math.random() * 100 - 50}px); opacity: 0; }
-                }
-                @keyframes pulse {
-                    0% { transform: scale(1); }
-                    50% { transform: scale(1.2); }
-                    100% { transform: scale(1); }
-                }
-            `;
-            document.head.appendChild(styleSheet);
-        });
-    </script>
-</body>
+    </body>
 
 </html>
