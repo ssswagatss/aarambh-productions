@@ -1569,6 +1569,25 @@ button {
     letter-spacing: .08em;
 }
 
+.footer-credit {
+    width: 100%;
+    text-align: center;
+    font-size: .7rem;
+    color: var(--muted-2);
+    letter-spacing: .06em;
+    margin-top: .5rem;
+}
+
+.footer-credit a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .3s;
+}
+
+.footer-credit a:hover {
+    color: var(--accent);
+}
+
 .footer-legal {
     display: flex;
     gap: 2rem;
