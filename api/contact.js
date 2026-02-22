@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const adminEmail = process.env.ADMIN_EMAIL || 'info@aarambhproductions.in';
+  const adminEmail = process.env.ADMIN_EMAIL || 'info@aarambhproductions.com';
 
   if (!resendApiKey) {
     console.error('RESEND_API_KEY not configured');
@@ -27,12 +27,12 @@ export default async function handler(req, res) {
   }
 
   const eventTypes = {
-    'wedding': 'Wedding',
+    wedding: 'Wedding',
     'pre-wedding': 'Pre-Wedding / Engagement',
-    'corporate': 'Corporate Event',
-    'private': 'Private / Social Event',
-    'brand': 'Brand / Product Shoot',
-    'other': 'Other'
+    corporate: 'Corporate Event',
+    private: 'Private / Social Event',
+    brand: 'Brand / Product Shoot',
+    other: 'Other',
   };
 
   const budgetRanges = {
@@ -40,16 +40,16 @@ export default async function handler(req, res) {
     '1L-2L': '₹1,00,000 – ₹2,00,000',
     '2L-5L': '₹2,00,000 – ₹5,00,000',
     '5L+': '₹5,00,000+',
-    'discuss': 'Let\'s Discuss'
+    discuss: "Let's Discuss",
   };
 
   const formatDate = (dateStr) => {
     if (!dateStr) return 'Not specified';
     try {
-      return new Date(dateStr).toLocaleDateString('en-IN', { 
-        day: 'numeric', 
-        month: 'long', 
-        year: 'numeric' 
+      return new Date(dateStr).toLocaleDateString('en-IN', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
       });
     } catch {
       return dateStr;
@@ -110,12 +110,16 @@ export default async function handler(req, res) {
           <div class="label">Budget Range</div>
           <div class="value">${budgetRanges[budget] || budget || 'Not specified'}</div>
         </div>
-        ${message ? `
+        ${
+          message
+            ? `
         <div class="field">
           <div class="label">Message</div>
           <div class="value message-box">${escapeHtml(message).replace(/\n/g, '<br>')}</div>
         </div>
-        ` : ''}
+        `
+            : ''
+        }
       </div>
       <div class="footer">
         <p>Reply directly to this client or contact them at ${escapeHtml(email)}</p>
@@ -147,17 +151,17 @@ Reply to this client at: ${email}
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${resendApiKey}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Aarambh Productions <noreply@aarambhproductions.in>',
+        from: 'Aarambh Productions <noreply@aarambhproductions.com>',
         to: [adminEmail],
         reply_to: email,
         subject: `New Inquiry: ${name} - ${eventTypes[event_type] || event_type}`,
         html: emailHtml,
-        text: emailText
-      })
+        text: emailText,
+      }),
     });
 
     const result = await response.json();
@@ -168,7 +172,6 @@ Reply to this client at: ${email}
     }
 
     return res.status(200).json({ success: true, id: result.id });
-
   } catch (error) {
     console.error('Email send error:', error);
     return res.status(500).json({ error: 'Failed to send inquiry' });
@@ -177,10 +180,5 @@ Reply to this client at: ${email}
 
 function escapeHtml(text) {
   if (!text) return '';
-  return String(text)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+  return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 }
