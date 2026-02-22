@@ -1373,6 +1373,29 @@ button {
     pointer-events: auto;
 }
 
+.form-error {
+    display: block;
+    color: #ff6b6b;
+    font-size: 0.75rem;
+    margin-top: 0.35rem;
+    min-height: 1rem;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.form-error.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+    border-color: #ff6b6b !important;
+    box-shadow: 0 0 0 1px rgba(255, 107, 107, 0.3);
+}
+
 /* ─────────────────────────────────────────
    CLOSING CTA
 ───────────────────────────────────────── */

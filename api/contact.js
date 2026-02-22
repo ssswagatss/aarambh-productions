@@ -9,13 +9,29 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   }
 
-  if (!name || !email || !phone || !event_type) {
-    return res.status(400).json({ error: 'Missing required fields' });
+  if (!name || !email || !phone || !event_type || !event_date || !location || !budget || !message) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  const phoneDigits = phone.replace(/\D/g, '');
+  if (phoneDigits.length !== 10) {
+    return res.status(400).json({ error: 'Phone must be exactly 10 digits' });
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return res.status(400).json({ error: 'Invalid email address' });
+  }
+
+  const selectedDate = new Date(event_date);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  if (selectedDate < today) {
+    return res.status(400).json({ error: 'Event date must be today or a future date' });
+  }
+
+  if (message.trim().length < 32) {
+    return res.status(400).json({ error: 'Message must be at least 32 characters' });
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;

@@ -93,11 +93,120 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-/* ── Form submission ── */
+/* ── Form validation ── */
 const form = document.querySelector('.inquiry-form form');
 if (form) {
+  const validators = {
+    name: (value) => {
+      if (!value.trim()) return 'Full name is required';
+      return '';
+    },
+    phone: (value) => {
+      const digits = value.replace(/\D/g, '');
+      if (!value.trim()) return 'Phone number is required';
+      if (digits.length !== 10) return 'Phone must be exactly 10 digits';
+      return '';
+    },
+    email: (value) => {
+      if (!value.trim()) return 'Email address is required';
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) return 'Please enter a valid email address';
+      return '';
+    },
+    event_type: (value) => {
+      if (!value) return 'Please select an event type';
+      return '';
+    },
+    event_date: (value) => {
+      if (!value) return 'Event date is required';
+      const selectedDate = new Date(value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (selectedDate < today) return 'Event date must be today or a future date';
+      return '';
+    },
+    location: (value) => {
+      if (!value.trim()) return 'Event location is required';
+      return '';
+    },
+    budget: (value) => {
+      if (!value) return 'Please select a budget range';
+      return '';
+    },
+    message: (value) => {
+      if (!value.trim()) return 'Please tell us your story';
+      if (value.trim().length < 32) return 'Message must be at least 32 characters';
+      return '';
+    }
+  };
+
+  function showError(fieldId, message) {
+    const errorEl = document.getElementById(fieldId + '-error');
+    const inputEl = document.getElementById('f' + fieldId.replace('_', '-'));
+    if (errorEl && inputEl) {
+      errorEl.textContent = message;
+      errorEl.classList.toggle('visible', !!message);
+      inputEl.classList.toggle('error', !!message);
+    }
+  }
+
+  function clearAllErrors() {
+    document.querySelectorAll('.form-error').forEach(el => {
+      el.textContent = '';
+      el.classList.remove('visible');
+    });
+    document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(el => {
+      el.classList.remove('error');
+    });
+  }
+
+  function validateForm() {
+    clearAllErrors();
+    let isValid = true;
+    const formData = new FormData(form);
+    
+    for (const [fieldName, validator] of Object.entries(validators)) {
+      const value = formData.get(fieldName) || '';
+      const error = validator(value);
+      if (error) {
+        showError(fieldName, error);
+        isValid = false;
+      }
+    }
+    
+    return isValid;
+  }
+
+  form.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(input => {
+    input.addEventListener('blur', () => {
+      const fieldName = input.name;
+      if (validators[fieldName]) {
+        const error = validators[fieldName](input.value);
+        showError(fieldName, error);
+      }
+    });
+
+    input.addEventListener('input', () => {
+      const fieldName = input.name;
+      const errorEl = document.getElementById(fieldName.replace('_', '-') + '-error');
+      if (errorEl && errorEl.classList.contains('visible')) {
+        const error = validators[fieldName](input.value);
+        showError(fieldName, error);
+      }
+    });
+  });
+
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      const firstError = form.querySelector('.form-error.visible');
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
     const btn = form.querySelector('.form-submit');
     const originalText = btn.textContent;
 
@@ -122,6 +231,7 @@ if (form) {
         btn.style.background = '#2a5a2a';
         btn.style.color = '#a8e6a8';
         form.reset();
+        clearAllErrors();
         const successMsg = form.querySelector('.form-success-message');
         successMsg.classList.add('visible');
         setTimeout(() => {

@@ -632,6 +632,7 @@
                                        required
                                        autocomplete="name"
                                        tabindex="1" />
+                                <span class="form-error" id="name-error"></span>
                             </div>
                             <div class="form-group">
                                 <label class="form-label"
@@ -640,10 +641,13 @@
                                        type="tel"
                                        id="fphone"
                                        name="phone"
-                                       placeholder="+91 00000 00000"
+                                       placeholder="00000 00000"
                                        required
+                                       pattern="[0-9]{10}"
+                                       maxlength="10"
                                        autocomplete="tel"
                                        tabindex="2" />
+                                <span class="form-error" id="phone-error"></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -657,6 +661,7 @@
                                    required
                                    autocomplete="email"
                                    tabindex="3" />
+                            <span class="form-error" id="email-error"></span>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -677,35 +682,41 @@
                                     <option value="brand">Brand / Product Shoot</option>
                                     <option value="other">Other</option>
                                 </select>
+                                <span class="form-error" id="event-type-error"></span>
                             </div>
                             <div class="form-group">
                                 <label class="form-label"
-                                       for="fevent-date">Event Date</label>
+                                       for="fevent-date">Event Date <span aria-label="required">*</span></label>
                                 <input class="form-input form-input-date"
                                        type="date"
                                        id="fevent-date"
                                        name="event_date"
+                                       required
                                        tabindex="5" />
+                                <span class="form-error" id="date-error"></span>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label"
-                                       for="flocation">Event Location</label>
+                                       for="flocation">Event Location <span aria-label="required">*</span></label>
                                 <input class="form-input"
                                        type="text"
                                        id="flocation"
                                        name="location"
                                        placeholder="City / Venue"
+                                       required
                                        autocomplete="off"
                                        tabindex="6" />
+                                <span class="form-error" id="location-error"></span>
                             </div>
                             <div class="form-group">
                                 <label class="form-label"
-                                       for="fbudget">Approximate Budget</label>
+                                       for="fbudget">Approximate Budget <span aria-label="required">*</span></label>
                                 <select class="form-select"
                                         id="fbudget"
                                         name="budget"
+                                        required
                                         tabindex="7">
                                     <option value=""
                                             disabled
@@ -716,16 +727,20 @@
                                     <option value="5L+">₹5,00,000+</option>
                                     <option value="discuss">Let's Discuss</option>
                                 </select>
+                                <span class="form-error" id="budget-error"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label"
-                                   for="fmessage">Tell Us Your Story</label>
+                                   for="fmessage">Tell Us Your Story <span aria-label="required">*</span></label>
                             <textarea class="form-textarea"
                                       id="fmessage"
                                       name="message"
                                       placeholder="Share what makes your event unique, what you envision, or anything you want us to know..."
+                                      required
+                                      minlength="32"
                                       tabindex="8"></textarea>
+                            <span class="form-error" id="message-error"></span>
                         </div>
                         <button type="submit"
                                 class="form-submit"
