@@ -93,23 +93,57 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-/* ── Form submission feedback ── */
+/* ── Form submission ── */
 const form = document.querySelector('.inquiry-form form');
 if (form) {
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
     const btn = form.querySelector('.form-submit');
-    btn.textContent = 'Inquiry Sent ✓';
-    btn.style.background = '#2a5a2a';
-    btn.style.color = '#a8e6a8';
+    const originalText = btn.textContent;
+
+    btn.textContent = 'Sending...';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Send Inquiry →';
-      btn.style.background = '';
-      btn.style.color = '';
-      btn.disabled = false;
-      form.reset();
-    }, 4000);
+    btn.style.opacity = '0.7';
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        btn.textContent = 'Inquiry Sent ✓';
+        btn.style.background = '#2a5a2a';
+        btn.style.color = '#a8e6a8';
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.disabled = false;
+          btn.style.opacity = '';
+        }, 4000);
+      } else {
+        throw new Error(result.error || 'Failed to send');
+      }
+    } catch (error) {
+      btn.textContent = 'Error! Try Again';
+      btn.style.background = '#8b2635';
+      btn.style.color = '#ffb4ab';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+        btn.style.opacity = '';
+      }, 3000);
+    }
   });
 }
 

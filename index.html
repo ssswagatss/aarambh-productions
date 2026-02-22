@@ -610,10 +610,16 @@
                 <!-- Inquiry Form -->
                 <div class="inquiry-form reveal reveal-delay-2">
                     <p class="form-title">Begin Your <span>Aarambh</span></p>
-                    <form action="#"
+<form id="contact-form"
                           method="POST"
                           novalidate
                           aria-label="Booking inquiry form">
+                        <input type="text"
+                               name="honeypot"
+                               style="position:absolute;left:-9999px;width:1px;height:1px;"
+                               tabindex="-1"
+                               autocomplete="off"
+                               aria-hidden="true">
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label"
