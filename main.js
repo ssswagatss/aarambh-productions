@@ -122,12 +122,15 @@ if (form) {
         btn.style.background = '#2a5a2a';
         btn.style.color = '#a8e6a8';
         form.reset();
+        const successMsg = form.querySelector('.form-success-message');
+        successMsg.classList.add('visible');
         setTimeout(() => {
           btn.textContent = originalText;
           btn.style.background = '';
           btn.style.color = '';
           btn.disabled = false;
           btn.style.opacity = '';
+          successMsg.classList.remove('visible');
         }, 4000);
       } else {
         throw new Error(result.error || 'Failed to send');

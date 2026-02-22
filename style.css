@@ -1353,6 +1353,26 @@ button {
     cursor: pointer;
 }
 
+.form-success-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--gold-dim);
+    border: 1px solid rgba(201, 169, 110, 0.3);
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s, transform 0.4s;
+    pointer-events: none;
+}
+
+.form-success-message.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
 /* ─────────────────────────────────────────
    CLOSING CTA
 ───────────────────────────────────────── */
