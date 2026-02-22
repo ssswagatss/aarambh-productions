@@ -1305,6 +1305,54 @@ button {
     transform: translateY(-2px);
 }
 
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus,
+.form-submit:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.form-input-date::-webkit-calendar-picker-indicator {
+    filter: invert(0.7) sepia(1) saturate(3) hue-rotate(10deg);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s, filter 0.3s;
+}
+
+.form-input-date::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+    filter: invert(0.8) sepia(1) saturate(4) hue-rotate(10deg);
+}
+
+.form-input-date::-webkit-datetime-edit {
+    color: var(--white);
+}
+
+.form-input-date::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+}
+
+.form-input-date::-webkit-datetime-edit-text {
+    color: var(--muted-2);
+}
+
+.form-input-date::-webkit-datetime-edit-month-field:focus,
+.form-input-date::-webkit-datetime-edit-day-field:focus,
+.form-input-date::-webkit-datetime-edit-year-field:focus {
+    color: var(--gold);
+    background: rgba(201, 169, 110, 0.1);
+}
+
+.form-input-date:invalid {
+    color: var(--muted-2);
+}
+
+.form-input-date::-moz-calendar-picker-indicator {
+    filter: invert(0.7) sepia(1) saturate(3) hue-rotate(10deg);
+    cursor: pointer;
+}
+
 /* ─────────────────────────────────────────
    CLOSING CTA
 ───────────────────────────────────────── */

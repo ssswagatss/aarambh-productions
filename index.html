@@ -590,7 +590,7 @@
                                aria-hidden="true"></i>
                             <div>
                                 <p class="contact-label">Email</p>
-                                <p class="contact-value">info@aarambhproductions.in</p>
+                                <p class="contact-value">info@aarambhproductions.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -610,7 +610,7 @@
                 <!-- Inquiry Form -->
                 <div class="inquiry-form reveal reveal-delay-2">
                     <p class="form-title">Begin Your <span>Aarambh</span></p>
-<form id="contact-form"
+                    <form id="contact-form"
                           method="POST"
                           novalidate
                           aria-label="Booking inquiry form">
@@ -630,7 +630,8 @@
                                        name="name"
                                        placeholder="Your Full Name"
                                        required
-                                       autocomplete="name" />
+                                       autocomplete="name"
+                                       tabindex="1" />
                             </div>
                             <div class="form-group">
                                 <label class="form-label"
@@ -641,7 +642,8 @@
                                        name="phone"
                                        placeholder="+91 00000 00000"
                                        required
-                                       autocomplete="tel" />
+                                       autocomplete="tel"
+                                       tabindex="2" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -653,7 +655,8 @@
                                    name="email"
                                    placeholder="your@email.com"
                                    required
-                                   autocomplete="email" />
+                                   autocomplete="email"
+                                   tabindex="3" />
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -662,7 +665,8 @@
                                 <select class="form-select"
                                         id="fevent-type"
                                         name="event_type"
-                                        required>
+                                        required
+                                        tabindex="4">
                                     <option value=""
                                             disabled
                                             selected>Select Event Type</option>
@@ -677,10 +681,11 @@
                             <div class="form-group">
                                 <label class="form-label"
                                        for="fevent-date">Event Date</label>
-                                <input class="form-input"
+                                <input class="form-input form-input-date"
                                        type="date"
                                        id="fevent-date"
-                                       name="event_date" />
+                                       name="event_date"
+                                       tabindex="5" />
                             </div>
                         </div>
                         <div class="form-row">
@@ -692,14 +697,16 @@
                                        id="flocation"
                                        name="location"
                                        placeholder="City / Venue"
-                                       autocomplete="off" />
+                                       autocomplete="off"
+                                       tabindex="6" />
                             </div>
                             <div class="form-group">
                                 <label class="form-label"
                                        for="fbudget">Approximate Budget</label>
                                 <select class="form-select"
                                         id="fbudget"
-                                        name="budget">
+                                        name="budget"
+                                        tabindex="7">
                                     <option value=""
                                             disabled
                                             selected>Select Budget Range</option>
@@ -717,10 +724,12 @@
                             <textarea class="form-textarea"
                                       id="fmessage"
                                       name="message"
-                                      placeholder="Share what makes your event unique, what you envision, or anything you want us to know..."></textarea>
+                                      placeholder="Share what makes your event unique, what you envision, or anything you want us to know..."
+                                      tabindex="8"></textarea>
                         </div>
                         <button type="submit"
-                                class="form-submit">Send Inquiry &nbsp;→</button>
+                                class="form-submit"
+                                tabindex="9">Send Inquiry &nbsp;→</button>
                     </form>
                 </div>
 
@@ -832,7 +841,7 @@
                     <ul class="footer-links"
                         role="list">
                         <li><a href="tel:+919853559600">+91 98535 59600</a></li>
-                        <li><a href="mailto:info@aarambhproductions.in">info@aarambhproductions.in</a></li>
+                        <li><a href="mailto:info@aarambhproductions.com">info@aarambhproductions.com</a></li>
                         <li><a href="#">Bhubaneswar, Odisha</a></li>
                         <li><a href="#">Jaraka, Odisha</a></li>
                     </ul>
