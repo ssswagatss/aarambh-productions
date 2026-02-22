@@ -1,3 +1,7 @@
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -34,13 +38,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Message must be at least 32 characters' });
   }
 
-  const resendApiKey = process.env.RESEND_API_KEY;
   const adminEmail = process.env.ADMIN_EMAIL || 'info@aarambhproductions.com';
-
-  if (!resendApiKey) {
-    console.error('RESEND_API_KEY not configured');
-    return res.status(500).json({ error: 'Email service not configured' });
-  }
 
   const eventTypes = {
     wedding: 'Wedding',
@@ -164,30 +162,21 @@ Reply to this client at: ${email}
   `.trim();
 
   try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'Aarambh Productions <noreply@aarambhproductions.com>',
-        to: [adminEmail],
-        reply_to: email,
-        subject: `New Inquiry: ${name} - ${eventTypes[event_type] || event_type}`,
-        html: emailHtml,
-        text: emailText,
-      }),
+    const { data, error } = await resend.emails.send({
+      from: 'Aarambh Productions <noreply@aarambhproductions.com>',
+      to: [adminEmail],
+      reply_to: email,
+      subject: `New Inquiry: ${name} - ${eventTypes[event_type] || event_type}`,
+      html: emailHtml,
+      text: emailText,
     });
 
-    const result = await response.json();
-
-    if (!response.ok) {
-      console.error('Resend API error:', result);
+    if (error) {
+      console.error('Resend API error:', error);
       return res.status(500).json({ error: 'Failed to send email' });
     }
 
-    return res.status(200).json({ success: true, id: result.id });
+    return res.status(200).json({ success: true, id: data.id });
   } catch (error) {
     console.error('Email send error:', error);
     return res.status(500).json({ error: 'Failed to send inquiry' });
