@@ -416,11 +416,11 @@ button {
     color: var(--white);
 }
 
-.btn-ghost svg {
+.btn-ghost i {
     transition: transform .3s var(--ease-expo);
 }
 
-.btn-ghost:hover svg {
+.btn-ghost:hover i {
     transform: translateX(4px);
 }
 
@@ -1428,7 +1428,7 @@ button {
     color: var(--gold);
 }
 
-.social-link svg {
+.social-link i {
     width: 16px;
     height: 16px;
 }

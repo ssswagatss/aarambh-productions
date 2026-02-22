@@ -1,5 +1,8 @@
 'use strict';
 
+/* ── Lucide Icons ── */
+lucide.createIcons();
+
 /* ── Sticky Nav ── */
 const nav = document.getElementById('nav');
 window.addEventListener(
