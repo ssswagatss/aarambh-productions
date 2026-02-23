@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'No build step required'",
+    "build": "cp index.html public/index.html && cp main.js public/main.js && cp style.css public/style.css || mkdir public && cp index.html public/index.html && cp main.js public/main.js && cp style.css public/style.css",
     "start": "vercel dev"
   },
   "dependencies": {
