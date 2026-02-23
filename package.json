@@ -2,12 +2,14 @@
   "name": "aarambh-weddings",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vercel dev",
     "build": "echo 'No build step required'",
     "start": "vercel dev"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "resend": "^4.0.0"
   },
   "engines": {
